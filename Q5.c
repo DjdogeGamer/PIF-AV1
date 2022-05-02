@@ -37,7 +37,7 @@ int somaSalarios(Funcionario funcionarios[], int n_de_funcionarios){
     }
 }
 
-int q5(){
+int main(){
 
     int n_de_funcionarios = 0;
     Funcionario funcionarios[n_de_funcionarios];
