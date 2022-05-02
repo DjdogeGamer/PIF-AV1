@@ -120,7 +120,7 @@ int guerraContraRei(int vidaJ, int vidaReidaNoite){
     }
 }
 
-int q4(void) {
+int main(void) {
     int poderNegociacao = 0;
     int tentativasJon = 0;
     int status = 0;
