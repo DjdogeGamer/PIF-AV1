@@ -147,7 +147,7 @@ int main(){
             printf("Dado: %i\n\n", dado_jog1);
 
             soma_dado1 = soma_dado1 + dado_jog1;
-            printf("Soma dado 1: %i\n", soma_dado1);
+            //printf("Soma dado 1: %i\n", soma_dado1);
 
             movimentacao(jog_da_vez, posx_jog1, posy_jog1, dado_jog1, &soma_dado1, matriz);
             printarTabuleiro(linhas,colunas,matriz);
@@ -178,7 +178,7 @@ int main(){
                 printf("Dado: %i\n\n", dado_jog1);
 
                 soma_dado1 = soma_dado1 + dado_jog1;
-                printf("Soma dado 1: %i\n", soma_dado1);
+                //printf("Soma dado 1: %i\n", soma_dado1);
 
                 if(soma_dado1 >= 27){
                     printf("Jogador 1 venceu !!!!!!");
@@ -237,7 +237,7 @@ int main(){
             printf("Dado: %i\n\n", dado_jog2);
 
             soma_dado2 = soma_dado2 + dado_jog2;
-            printf("Soma dado 2: %i\n", soma_dado2);
+            //printf("Soma dado 2: %i\n", soma_dado2);
 
 
             movimentacao(jog_da_vez, posx_jog2, posy_jog2, dado_jog2, &soma_dado2, matriz);
@@ -269,7 +269,7 @@ int main(){
                 printf("Dado: %i\n\n", dado_jog2);
 
                 soma_dado2 = soma_dado2 + dado_jog2;
-                printf("Soma dado 2: %i\n", soma_dado2);
+                //printf("Soma dado 2: %i\n", soma_dado2);
 
                 if(soma_dado2 >= 27){
                     printf("Jogador 2 venceu !!!!!!");
