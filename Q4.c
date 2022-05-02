@@ -51,7 +51,7 @@ int guerraContraCersei(int vidaJ,int vidaC)
         printf("\nJon joga o dado! dado de Jon = %i\n", taxaAtaqueJ);
         if(taxaAtaqueJ >= 50)
         {
-            vidaC = vidaC - 10;
+            vidaC = vidaC - 50;
             printf("\n*****Ataque de Jon bem sucedido!*****\n Vida de Cersei = %i\n", vidaC);
             if(vidaC <= 0)
             {
@@ -63,6 +63,7 @@ int guerraContraCersei(int vidaJ,int vidaC)
         {
             printf("Ataque de Jon mau sucedido! vez de Cersei.");
         }
+        sleep(1);
         int taxaAtaqueC = rand()%100;
         printf("\nCersei joga o dado! dado de Cersei = %i\n", taxaAtaqueC);
         if(taxaAtaqueC >= 50)
@@ -78,6 +79,7 @@ int guerraContraCersei(int vidaJ,int vidaC)
         {
             printf("Ataque de Cersei mal sucedido! vez de Jon.");
         }
+        sleep(1);
     }
 }
 
@@ -101,6 +103,7 @@ int guerraContraRei(int vidaJ, int vidaReidaNoite){
         {
             printf("Ataque mau sucedido! vez do Rei da Noite.");
         }
+        sleep(1);
         int taxaAtaqueR = rand()%100;
         printf("\nRei da Noite joga o dado! dado do Rei da Noite = %i\n", taxaAtaqueR);
         if(taxaAtaqueR >= 50)
@@ -117,10 +120,11 @@ int guerraContraRei(int vidaJ, int vidaReidaNoite){
         {
             printf("Ataque do Rei da Noite mal sucedido! vez de Jon.");
         }
+        sleep(1);
     }
 }
 
-int main(void) {
+int q4(void) {
     int poderNegociacao = 0;
     int tentativasJon = 0;
     int status = 0;
@@ -136,6 +140,17 @@ int main(void) {
     iniciarElementos(cenario, 'I', 20);//inicalizando Ininimigos
     iniciarElementos(cenario, 'O', 10);//inicalizando Obstaculos    
     iniciarElementos(cenario, 'V', 10);//inicalizando Vidas
+    printf("Jon Snow parte de Winterfell em direção ao reino de Westeros, onde Cersei se encontra."
+    "\nO rei da noite encontra-se em seu reino ao final de Westeros."
+    "\nJon Snow não pode enfrentar o rei da noite antes de negociar com Cersei."
+    "\nJon snow é indetificado na matriz como J, O reino de Cersei como C, e o Reino do rei da noite como N."
+    "\nExistem 20 inimigos no cenario, indentificados como 'I', 10 Obstaculos indeticados como 'O' e 10 poções de vida indentificadas como 'V'."
+    "\nJon nao pode atravessar obstaculos.Caso jon passe por um inigo ele operde 1 de vida e caso ele passe por uma poção ele ganha 5."
+    "\nO objetivo do jogo é fazer com que Jon passe pelo reino de Cersei e derrote o rei da noite em seguida."
+    "\nUse 'w', 'a', 's', 'd' para se movimentar pelo mapa.\n");
+    printf("\nVida de Jon = %i Vida de Cersei = %i Vida Rei da noite = %i",vidaJ, vidaC, vidaReidaNoite);
+    printf("\nAtaque de jon = 10, ataque de cersei = 10, ataque do rei da noite = 5(tem roubo de vida de 100%)\n");
+    
     do
     {
         
@@ -154,7 +169,8 @@ int main(void) {
                 {
                    if(cenario[jl-1][jc] == 'C')
                    {
-                       while(tentativasJon < 5){//convercer Cersei
+                       while(tentativasJon < 5)
+                       {//convercer Cersei
                            tentativasJon++;
                            int auxRandPoderNegociacao = rand()%100;
                            printf("\nDado de negociação Jogado! \n dado = %i", auxRandPoderNegociacao);
@@ -162,15 +178,17 @@ int main(void) {
                                poderNegociacao = poderNegociacao + 1;
                                printf("\nPoder de Negociacao aumentado para: %i", poderNegociacao);
                            }
+                           sleep(1);
                        }
                        if(poderNegociacao >= 3){
                            printf("\nJon ganhou a negociação! ");
                            vidaJ += 100; 
                            printf("Jon agora tem %i de vida\n", vidaJ);
                        }
-                       else{
+                       else
+                       {
                            printf("\n@@@@@@@@@@@@@@ Jon perdeu a negociação, guerra iniciada! @@@@@@@@@@@@@@\n");
-                           status, vidaJ = guerraContraCersei(vidaJ, vidaC);
+                           vidaJ = guerraContraCersei(vidaJ, vidaC);
                        }
                    }
                    
@@ -211,7 +229,8 @@ int main(void) {
                 {
                    if(cenario[jl][jc-1] == 'C')
                    {
-                       while(tentativasJon < 5){//convercer Cersei
+                       while(tentativasJon < 5)
+                       {//convercer Cersei
                            tentativasJon++;
                            int auxRandPoderNegociacao = rand()%100;
                            printf("\nDado de negociação Jogado! \n dado = %i", auxRandPoderNegociacao);
@@ -219,6 +238,7 @@ int main(void) {
                                poderNegociacao = poderNegociacao + 1;
                                printf("\nPoder de Negociacao aumentado para: %i", poderNegociacao);
                            }
+                           sleep(1);
                        }
                        if(poderNegociacao >= 3){
                            printf("\nJon ganhou a negociação! ");
@@ -227,7 +247,7 @@ int main(void) {
                        }
                        else{
                            printf("\n@@@@@@@@@@@@@@ Jon perdeu a negociação, guerra iniciada! @@@@@@@@@@@@@@\n");
-                           status = guerraContraCersei(vidaJ, vidaC);
+                           vidaJ = guerraContraCersei(vidaJ, vidaC);
                        }
                    }
                    
@@ -267,7 +287,8 @@ int main(void) {
                 {
                    if(cenario[jl+1][jc] == 'C')
                    {
-                       while(tentativasJon < 5){//convercer Cersei
+                       while(tentativasJon < 5)//convercer Cersei
+                       {
                            tentativasJon++;
                            int auxRandPoderNegociacao = rand()%100;
                            printf("\nDado de negociação Jogado! \n dado = %i", auxRandPoderNegociacao);
@@ -275,6 +296,7 @@ int main(void) {
                                poderNegociacao = poderNegociacao + 1;
                                printf("\nPoder de Negociacao aumentado para: %i", poderNegociacao);
                            }
+                           sleep(1);
                        }
                        if(poderNegociacao >= 3){
                            printf("\nJon ganhou a negociação! ");
@@ -283,7 +305,7 @@ int main(void) {
                        }
                        else{
                            printf("\n@@@@@@@@@@@@@@ Jon perdeu a negociação, guerra iniciada! @@@@@@@@@@@@@@\n");
-                           status = guerraContraCersei(vidaJ, vidaC);
+                           vidaJ = guerraContraCersei(vidaJ, vidaC);
                        }
                    }
                    
@@ -321,7 +343,8 @@ int main(void) {
                 {
                    if(cenario[jl][jc+1] == 'C')
                    {
-                       while(tentativasJon < 5){//convercer Cersei
+                       while(tentativasJon < 5)
+                       {//convercer Cersei
                            tentativasJon++;
                            int auxRandPoderNegociacao = rand()%100;
                            printf("\nDado de negociação Jogado! \n dado = %i", auxRandPoderNegociacao);
@@ -329,6 +352,7 @@ int main(void) {
                                poderNegociacao = poderNegociacao + 1;
                                printf("\nPoder de Negociacao aumentado para: %i", poderNegociacao);
                            }
+                           sleep(1);
                        }
                        if(poderNegociacao >= 3){
                            printf("\nJon ganhou a negociação! ");
@@ -337,7 +361,7 @@ int main(void) {
                        }
                        else{
                            printf("\n@@@@@@@@@@@@@@ Jon perdeu a negociação, guerra iniciada! @@@@@@@@@@@@@@\n");
-                           status, vidaJ = guerraContraCersei(vidaJ, vidaC);
+                           vidaJ = guerraContraCersei(vidaJ, vidaC);
                        }
                    }
                    
