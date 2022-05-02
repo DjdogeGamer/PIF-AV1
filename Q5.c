@@ -16,7 +16,7 @@ void cadastrarFuncionarios(Funcionario funcionarios[], int n_de_funcionarios){
         getchar();
 
         printf("Informe o cpf do funcionario: ");
-        scanf(" %s", &funcionarios[i].cpf);
+        scanf("%s", funcionarios[i].cpf);
         getchar();
 
         printf("Informe o salario desse funcionario: R$");
