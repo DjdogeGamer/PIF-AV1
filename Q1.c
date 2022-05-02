@@ -46,7 +46,7 @@ int main(){
 
         //zerar matriz
         zerarTabuleiro(8, matriz);
-        printarTabuleiro(8, matriz);
+        //printarTabuleiro(8, matriz);
         printf("\n");
 
         //inicializa peca 2
